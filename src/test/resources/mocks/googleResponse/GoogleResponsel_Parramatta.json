@@ -1,0 +1,274 @@
+{
+  kind: "customsearch#search",
+  url: {
+    type: "application/json",
+    template: "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  queries: {
+    request: [
+      {
+        title: "Google Custom Search - "driving school"",
+        totalResults: "5",
+        searchTerms: ""driving school"",
+        count: 5,
+        startIndex: 1,
+        inputEncoding: "utf8",
+        outputEncoding: "utf8",
+        safe: "off",
+        cx: "011550033511254716529:op_wa7xebck",
+        hq: "parramatta"
+      }
+    ]
+  },
+  context: {
+    title: "Search Driving School"
+  },
+  searchInformation: {
+    searchTime: 0.207942,
+    formattedSearchTime: "0.21",
+    totalResults: "5",
+    formattedTotalResults: "5"
+  },
+  items: [
+    {
+      kind: "customsearch#result",
+      title: "ABC Driving School Locations",
+      htmlTitle: "ABC <b>Driving School</b> Locations",
+      link: "https://www.google.com/mymaps/viewer?mid=1l02m0VBhDrRhvwTP8363LHeKkIg&hl=en",
+      displayLink: "www.google.com",
+      snippet: "ABC Driving School Locations. ... ABC Driving School Parramatta. ABC Driving School Ryde & Hornsby. ABC Driving School Fairfield. ABC Driving School ...",
+      htmlSnippet: "ABC Driving School Locations. ... ABC <b>Driving School Parramatta</b>. ABC Driving <br> School Ryde &amp; Hornsby. ABC Driving School Fairfield. ABC Driving School&nbsp;...",
+      cacheId: "H_WXGoNCwt4J",
+      formattedUrl: "https://www.google.com/mymaps/viewer?mid...hl=en",
+      htmlFormattedUrl: "https://www.google.com/mymaps/viewer?mid...hl=en",
+      pagemap: {
+        cse_thumbnail: [
+          {
+            width: "225",
+            height: "225",
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJV-OWwWvyZgSlDTioE0nDdHZJrzHDEPef47KSgbUCMqLMOFHNySeJZIiu"
+          }
+        ],
+        website: [
+          {
+            name: "ABC Driving School Locations",
+            description: "ABC Driving School Locations",
+            url: "https://www.google.com/maps/d/viewer?mid=1l02m0VBhDrRhvwTP8363LHeKkIg&hl=en",
+            image: "https://www.google.com/maps/d/thumbnail?mid=1l02m0VBhDrRhvwTP8363LHeKkIg&hl=en"
+          }
+        ],
+        metatags: [
+          {
+            viewport: "initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width",
+            og:type: "website",
+            og:title: "ABC Driving School Locations",
+            og:description: "ABC Driving School Locations",
+            og:url: "https://www.google.com/maps/d/viewer?mid=1l02m0VBhDrRhvwTP8363LHeKkIg&hl=en",
+            og:image: "https://www.google.com/maps/d/thumbnail?mid=1l02m0VBhDrRhvwTP8363LHeKkIg&hl=en",
+            twitter:card: "summary_large_image",
+            twitter:title: "ABC Driving School Locations",
+            twitter:description: "ABC Driving School Locations",
+            twitter:image:src: "https://www.google.com/maps/d/thumbnail?mid=1l02m0VBhDrRhvwTP8363LHeKkIg&hl=en"
+          }
+        ],
+        cse_image: [
+          {
+            src: "https://khms1.googleapis.com/kh?v=729&hl=en&&x=29&y=19&z=5"
+          }
+        ]
+      }
+    },
+    {
+      kind: "customsearch#result",
+      title: "2EC Driving School Service Area",
+      htmlTitle: "2EC <b>Driving School</b> Service Area",
+      link: "https://www.google.com/mymaps/viewer?mid=1hVJKLRWwYIn045_nxhWTga2GUcM&hl=en_US",
+      displayLink: "www.google.com",
+      snippet: "Dundas. Dundas Valley. Rydalmere. Ermington. Denistone. Ryde. West Ryde. Marsfield. Lidcombe. Auburn. Silverwater. Granville. Parramatta. North Parramatta.",
+      htmlSnippet: "Dundas. Dundas Valley. Rydalmere. Ermington. Denistone. Ryde. West Ryde. <br> Marsfield. Lidcombe. Auburn. Silverwater. Granville. <b>Parramatta</b>. North <br> <b>Parramatta</b>.",
+      cacheId: "riC7QSUdBt8J",
+      formattedUrl: "https://www.google.com/mymaps/viewer?mid...hl=en_US",
+      htmlFormattedUrl: "https://www.google.com/mymaps/viewer?mid...hl=en_US",
+      pagemap: {
+        cse_thumbnail: [
+          {
+            width: "225",
+            height: "225",
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZCc8EIMTDFyOy5s4QH-kvI5srR7UmelT7LXbcSw-3Cwr_5cEiu6Q-t8U"
+          }
+        ],
+        website: [
+          {
+            name: "2EC Driving School Service Area",
+            description: "2EC Driving School Service Area",
+            url: "https://www.google.com/maps/d/viewer?mid=1hVJKLRWwYIn045_nxhWTga2GUcM&hl=en_US",
+            image: "https://www.google.com/maps/d/thumbnail?mid=1hVJKLRWwYIn045_nxhWTga2GUcM&hl=en_US"
+          }
+        ],
+        metatags: [
+          {
+            viewport: "initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width",
+            og:type: "website",
+            og:title: "2EC Driving School Service Area",
+            og:description: "2EC Driving School Service Area",
+            og:url: "https://www.google.com/maps/d/viewer?mid=1hVJKLRWwYIn045_nxhWTga2GUcM&hl=en_US",
+            og:image: "https://www.google.com/maps/d/thumbnail?mid=1hVJKLRWwYIn045_nxhWTga2GUcM&hl=en_US",
+            twitter:card: "summary_large_image",
+            twitter:title: "2EC Driving School Service Area",
+            twitter:description: "2EC Driving School Service Area",
+            twitter:image:src: "https://www.google.com/maps/d/thumbnail?mid=1hVJKLRWwYIn045_nxhWTga2GUcM&hl=en_US"
+          }
+        ],
+        cse_image: [
+          {
+            src: "https://khms1.googleapis.com/kh?v=726&hl=en&&x=235&y=153&z=8"
+          }
+        ]
+      }
+    },
+    {
+      kind: "customsearch#result",
+      title: "Fair Price Driving School Areas Covered",
+      htmlTitle: "Fair Price <b>Driving School</b> Areas Covered",
+      link: "https://www.google.com/mymaps/viewer?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en",
+      displayLink: "www.google.com",
+      snippet: "Open full screen to view more. Fair Price Driving School Areas Covered. www. fairpricedriving.com. ... North Parramatta NSW. Parramatta NSW. Crestwood NSW.",
+      htmlSnippet: "Open full screen to view more. Fair Price <b>Driving School</b> Areas Covered. www.<br> fairpricedriving.com. ... North <b>Parramatta</b> NSW. <b>Parramatta</b> NSW. Crestwood <br> NSW.",
+      cacheId: "3CNSMP6SkZYJ",
+      formattedUrl: "https://www.google.com/mymaps/viewer?mid=1KmkzSiSW0...",
+      htmlFormattedUrl: "https://www.google.com/mymaps/viewer?mid=1KmkzSiSW0...",
+      pagemap: {
+        cse_thumbnail: [
+          {
+            width: "221",
+            height: "228",
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTvEgyv3xIvhVK24eB_w4W6g6Nq5vHqJ-T80z2tB0yo0Red8pQTuLavw4IS"
+          }
+        ],
+        website: [
+          {
+            name: "Fair Price Driving School Areas Covered",
+            description: "www.fairpricedriving.com.au",
+            url: "https://www.google.com/maps/d/viewer?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en",
+            image: "https://www.google.com/maps/d/thumbnail?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en"
+          }
+        ],
+        metatags: [
+          {
+            viewport: "initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width",
+            og:type: "website",
+            og:title: "Fair Price Driving School Areas Covered",
+            og:description: "www.fairpricedriving.com.au",
+            og:url: "https://www.google.com/maps/d/viewer?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en",
+            og:image: "https://www.google.com/maps/d/thumbnail?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en",
+            twitter:card: "summary_large_image",
+            twitter:title: "Fair Price Driving School Areas Covered",
+            twitter:description: "www.fairpricedriving.com.au",
+            twitter:image:src: "https://www.google.com/maps/d/thumbnail?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en"
+          }
+        ],
+        cse_image: [
+          {
+            src: "https://www.google.com/maps/d/thumbnail?mid=1KmkzSiSW0_aZXR3kEylVGRpcfZA&hl=en"
+          }
+        ]
+      }
+    },
+    {
+      kind: "customsearch#result",
+      title: "Elizabeth Driving School",
+      htmlTitle: "Elizabeth <b>Driving School</b>",
+      link: "https://www.google.com/mymaps/viewer?mid=1aNI54-R1FaDIvgqBbICCMWs2lmM&hl=en",
+      displayLink: "www.google.com",
+      snippet: "Elizabeth Driving School. Areas Covered. Areas Covered. 37 views. Untitled layer. Penrith. Richmond. Blacktown. Parramatta. Mt. Druitt. Horsley Park ...",
+      htmlSnippet: "Elizabeth <b>Driving School</b>. Areas Covered. Areas Covered. 37 views. Untitled <br> layer. Penrith. Richmond. Blacktown. <b>Parramatta</b>. Mt. Druitt. Horsley Park&nbsp;...",
+      cacheId: "3Dli6wJR45QJ",
+      formattedUrl: "https://www.google.com/mymaps/viewer?mid=1aNI54...hl=en",
+      htmlFormattedUrl: "https://www.google.com/mymaps/viewer?mid=1aNI54...hl=en",
+      pagemap: {
+        cse_thumbnail: [
+          {
+            width: "204",
+            height: "204",
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiZ95ask8CpiMsh7Mb8Ocy6gQIDAG6mVaU8dtEgh1O2deluIrCxsFUHQol"
+          }
+        ],
+        website: [
+          {
+            name: "Elizabeth Driving School",
+            description: "Areas Covered",
+            url: "https://www.google.com/maps/d/viewer?mid=1aNI54-R1FaDIvgqBbICCMWs2lmM&hl=en",
+            image: "https://www.google.com/maps/d/thumbnail?mid=1aNI54-R1FaDIvgqBbICCMWs2lmM&hl=en"
+          }
+        ],
+        metatags: [
+          {
+            viewport: "initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width",
+            og:type: "website",
+            og:title: "Elizabeth Driving School",
+            og:description: "Areas Covered",
+            og:url: "https://www.google.com/maps/d/viewer?mid=1aNI54-R1FaDIvgqBbICCMWs2lmM&hl=en",
+            og:image: "https://www.google.com/maps/d/thumbnail?mid=1aNI54-R1FaDIvgqBbICCMWs2lmM&hl=en",
+            twitter:card: "summary_large_image",
+            twitter:title: "Elizabeth Driving School",
+            twitter:description: "Areas Covered",
+            twitter:image:src: "https://www.google.com/maps/d/thumbnail?mid=1aNI54-R1FaDIvgqBbICCMWs2lmM&hl=en"
+          }
+        ],
+        cse_image: [
+          {
+            src: "https://khms1.googleapis.com/kh?v=726&hl=en&&x=117&y=76&z=7"
+          }
+        ]
+      }
+    },
+    {
+      kind: "customsearch#result",
+      title: "Ricks Driving School",
+      htmlTitle: "Ricks <b>Driving School</b>",
+      link: "https://www.google.com/mymaps/viewer?mid=11N0q-QPfucu673g8WNjSnMF4wLk&hl=en_US",
+      displayLink: "www.google.com",
+      snippet: "Ricks Driving School. 3,417 views. Untitled layer. Parramatta. Prospect. Blacktown. Marayong. Quakers Hill. Stanhope. Rouse hill. Glenhaven. Kellyville.",
+      htmlSnippet: "Ricks <b>Driving School</b>. 3,417 views. Untitled layer. <b>Parramatta</b>. Prospect. <br> Blacktown. Marayong. Quakers Hill. Stanhope. Rouse hill. Glenhaven. Kellyville.",
+      cacheId: "_ij8p6vEbFcJ",
+      formattedUrl: "https://www.google.com/mymaps/viewer?mid=11N0q...hl=en...",
+      htmlFormattedUrl: "https://www.google.com/mymaps/viewer?mid=11N0q...hl=en...",
+      pagemap: {
+        cse_thumbnail: [
+          {
+            width: "225",
+            height: "225",
+            src: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQjQTCWGBSqRMDuN-yvkl4gwU3h7JobqM-2UDBRm8I3003IWiNRetpIzbxd"
+          }
+        ],
+        website: [
+          {
+            name: "Ricks Driving School",
+            description: "Ricks Driving School",
+            url: "https://www.google.com/maps/d/viewer?mid=11N0q-QPfucu673g8WNjSnMF4wLk&hl=en_US",
+            image: "https://www.google.com/maps/d/thumbnail?mid=11N0q-QPfucu673g8WNjSnMF4wLk&hl=en_US"
+          }
+        ],
+        metatags: [
+          {
+            viewport: "initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0,width=device-width",
+            og:type: "website",
+            og:title: "Ricks Driving School",
+            og:description: "Ricks Driving School",
+            og:url: "https://www.google.com/maps/d/viewer?mid=11N0q-QPfucu673g8WNjSnMF4wLk&hl=en_US",
+            og:image: "https://www.google.com/maps/d/thumbnail?mid=11N0q-QPfucu673g8WNjSnMF4wLk&hl=en_US",
+            twitter:card: "summary_large_image",
+            twitter:title: "Ricks Driving School",
+            twitter:description: "Ricks Driving School",
+            twitter:image:src: "https://www.google.com/maps/d/thumbnail?mid=11N0q-QPfucu673g8WNjSnMF4wLk&hl=en_US"
+          }
+        ],
+        cse_image: [
+          {
+            src: "https://khms1.googleapis.com/kh?v=729&hl=en&&x=235&y=153&z=8"
+          }
+        ]
+      }
+    }
+  ]
+}
