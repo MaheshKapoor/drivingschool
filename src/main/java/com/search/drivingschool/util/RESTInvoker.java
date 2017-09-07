@@ -54,7 +54,7 @@ public class RESTInvoker {
         }
 
         try {
-
+            logger.info("RESTInvoker URL :"+uriBuilder.build().toUri());
             ResponseEntity<T> response = restTemplate.exchange(
                     uriBuilder.build().toUri(),
                     method,
@@ -62,6 +62,7 @@ public class RESTInvoker {
                     responseType);
 
             if (response != null) {
+                logger.info("RESTInvoker :"+response);
                 //202 response with empty body is a valid response, in this case returning null indicates error. So..
                 if (response.getStatusCode() == HttpStatus.ACCEPTED && response.getBody() == null) {
                     return responseType.newInstance();

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drivingschool</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+
+<input type="text"  id="search_box" name="keyword" placeholder="Search by suburb or city">
+<input id="btnSearch" type="button" value="search" />
+
+<table id="searchResult" border='1'>
+    <tr>
+        <th>Result</th>
+    </tr>
+</table>
+<script type="text/javascript">
+    $(document).ready( function() {
+        // alert($('#search_box').val());
+        $('#searchResult').hide();
+        $('#btnSearch').click( function() {
+            $.ajax({
+                type: "GET",
+                url: "/drivingschool",
+                data: {suburb : $('#search_box').val()},
+                dataType: "json",
+                timeout : 60000,
+                cache : false,
+                success : function(data) {
+                    //alert("Success" );
+                    var trHTML = '';
+                    console.log(data)
+                    $.each(data, function() {
+                        $.each(this, function(i, item) {
+                            trHTML += '<tr><td><a href="'+item.link+'">' +item.title + '</a>' +
+                                '<br/> <label>About us: </label>' + item.snippet +
+                                '</td></tr>';
+                        });
+                    });
+
+                    $('#searchResult').append(trHTML);
+                    $('#searchResult').show();
+                },
+                error : function(xhr,data) {
+                    if (data.status != "SUCCESS") {
+                        alert("ERROR");
+                    }
+                },
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

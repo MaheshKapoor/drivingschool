@@ -2,11 +2,16 @@ package com.search.drivingschool;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.*;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-@EnableAutoConfiguration
 @SpringBootApplication
-public class DrivingschoolApplication {
+public class DrivingschoolApplication extends SpringBootServletInitializer {
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder  application) {
+		return application.sources(DrivingschoolApplication.class);
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(DrivingschoolApplication.class, args);
