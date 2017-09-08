@@ -22,11 +22,12 @@ public class DrivingSchoolSearchService {
     private DrivingSchoolCommand drivingSchoolCommand;
 
     @RequestMapping(value="/drivingschool", method= RequestMethod.GET)
-    public @ResponseBody Response getDetails(@QueryParam("suburb") final String suburb) throws Exception {
+    public @ResponseBody Response getDetails(@QueryParam("suburb") final String suburb,
+                                             @QueryParam("startIndex") final String startIndex) throws Exception {
         Response response = null;
         //String suburb ="Parramatta";
         if(suburb != null) {
-            response = drivingSchoolCommand.getConsolidatedDetail(suburb);
+            response = drivingSchoolCommand.getConsolidatedDetail(suburb, startIndex);
         }
         return response;
     }

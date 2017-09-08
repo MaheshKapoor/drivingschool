@@ -36,10 +36,10 @@ public class DrivingSchoolCommand {
 
     private static final String RESPONSE = "/mocks/googleResponse/GoogleResponse_Parramatta.json" ;
 
-    public Response getConsolidatedDetail(String suburb){
+    public Response getConsolidatedDetail(String suburb, String startIndex){
         Response customSearchResponse = null;
         try {
-            customSearchResponse = getCustomSearchData(suburb);
+            customSearchResponse = getCustomSearchData(suburb, startIndex);
             logger.info("response"+customSearchResponse);
         }catch(Exception ex){
             logger.error("Error while calling Custom Search API", ex);
@@ -47,7 +47,7 @@ public class DrivingSchoolCommand {
         return customSearchResponse;
     }
 
-    public Response getCustomSearchData(String suburb) throws IOException, DownstreamFailureException{
+    public Response getCustomSearchData(String suburb, String startIndex) throws IOException, DownstreamFailureException{
         Response response=null;
         String googleCSEUrl = config.getDownStreamCSEURL();
         String defaultQueryParam = config.getDefaultCSEQueryParam();
@@ -70,6 +70,10 @@ public class DrivingSchoolCommand {
 
         if(customSearchAPIKey != null){
             params.put("key", customSearchAPIKey);
+        }
+
+        if(startIndex != null){
+            params.put("start", startIndex);
         }
 
         try{

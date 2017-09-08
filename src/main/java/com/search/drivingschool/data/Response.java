@@ -16,11 +16,22 @@ public class Response {
     @JsonProperty("items")
     private List<Items> items;
 
+    @JsonProperty("queries")
+    private Query query;
+
     public List<Items> getItems() {
         return items;
     }
 
     public void setItems(List<Items> items) {
         this.items = items;
+    }
+
+    public Query getQuery() {
+        return query;
+    }
+
+    public void setQuery(Query query) {
+        this.query = query;
     }
 }

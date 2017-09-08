@@ -18,26 +18,39 @@
         <th>Result</th>
     </tr>
 </table>
+<input id="btnnext" type="button" value="Next" />
 <script type="text/javascript">
     $(document).ready( function() {
         // alert($('#search_box').val());
+
+        var startIndex = 1;
+        var src = null;
         $('#searchResult').hide();
-        $('#btnSearch').click( function() {
+        $('#btnSearch, #btnnext').click( function() {
             $.ajax({
                 type: "GET",
                 url: "/drivingschool",
-                data: {suburb : $('#search_box').val()},
+                data: {suburb : $('#search_box').val(), startIndex: startIndex},
                 dataType: "json",
                 timeout : 60000,
                 cache : false,
                 success : function(data) {
                     //alert("Success" );
                     var trHTML = '';
-                    console.log(data)
+                    console.log(data);
+                    console.log(data.queries.nextPage[0].startIndex);
+                    startIndex = data.queries.nextPage[0].startIndex;
                     $.each(data, function() {
+
                         $.each(this, function(i, item) {
+                            if(item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
+                                src= item.pagemap.cse_thumbnail[0].src;
+                            }else{
+                                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw6lyiAM_cHeC7p04bRD-6Jy08QMpt_Wuvj4JZsMOPibj93Zk3dJUGn-2l";
+                            }
                             trHTML += '<tr><td><a href="'+item.link+'">' +item.title + '</a>' +
                                 '<br/> <label>About us: </label>' + item.snippet +
+                                '<br/> <img src ="' + src + '">'+
                                 '</td></tr>';
                         });
                     });

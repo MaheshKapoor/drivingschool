@@ -18,6 +18,16 @@ public class Items {
     private String link;
     @JsonProperty("snippet")
     private String snippet;
+    @JsonProperty("pagemap")
+    private Image image;
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     public String getTitle() {
         return title;
