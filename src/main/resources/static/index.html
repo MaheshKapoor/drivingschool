@@ -3,21 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <title>drivingschool</title>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+
+        ul{
+            list-style: none;
+        }
+        .listing{
+            background: #fff;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+            min-height: 40px;
+            border-bottom: 3px solid #eee;
+            margin-bottom: 7px;
+            position: relative;
+        }
+        .business {
+            padding: 10px 40% 10px 60px;
+            display: block;
+            height: 100%;
+        }
+
+        .business, .details {
+            width: 100%;
+            position: relative;
+        }
+
+        .marker {
+            width: 60px;
+            float: left;
+            display: inline-block;
+            padding-top: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .mm {
+            margin: 0 auto;
+            font-weight: 600;
+            padding-top: 3.5px;
+            padding-left: 1px;
+            width: 28px;
+            height: 39px;
+            display: block;
+
+            background: url(../mm_yellow_empty.svg) center top no-repeat,none;
+            -webkit-background-size: contain!important;
+            -moz-background-size: contain!important;
+            background-size: contain!important;
+        }
+
+        .details {
+            min-height: 50px;
+        }
+
+        .details>a:first-child {
+            display: block;
+            width: 100%;
+            z-index: 0;
+        }
+
+        .details>a:first-child, .media {
+            position: absolute;
+            height: 100%;
+        }
+
+        .details h3 {
+            margin: 0 0 5px;
+            color: #00368b;
+            font-size: 18px;
+            font-size: 17px;
+        }
+        @media (min-width: 1200px){
+
+            .container {
+                width: 1170px;
+            }
+
+        }
+        @media (min-width: 992px)
+        {
+            .container {
+                width: 970px;
+            }
+        }
+        @media (min-width: 768px)
+        {
+            .container {
+                width: 750px;
+            }
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        a {
+            color: #00368b;
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+
+        .details .slogan {
+            font-size: 14px;
+            max-width: 250px;
+            max-width: 100%;
+            color: #525252;
+            margin: 0 0 5px;
+        }
+
+        .details address {
+            line-height: 16px;
+            color: #525252;
+            font-size: 12px;
+            margin: 0 0 3px;
+        }
+
+        .details address {
+            line-height: 16px;
+            color: #525252;
+            font-size: 12px;
+            margin: 0 0 3px;
+        }
+
+        .details p.num {
+            margin: 0;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .media {
+            top: 10px;
+            right: 10px;
+            margin: 0;
+            width: 170px;
+            z-index: 9;
+        }
+
+        .media .logo {
+            float: right;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 20px;
+        }
+
+        .media .logo a {
+            display: inline;
+        }
+
+        .media .logo img {
+            border: 1px solid #e5e5e5;
+            min-height: auto;
+            max-height: 100%;
+            float: right;
+        }
+
+        .listing.hp::before {
+            background: #ffd801;
+        }
+
+        .listing.dq::before, .listing.hc::before, .listing.hp::before, .listing.hs::before, .listing.mb::before, .listing.qc::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            z-index: 10;
+            left: 0;
+        }
+        .thumbnail{
+            width: 80%;
+            height: 80%;
+        }
+
+    </style>
+
+
+
 </head>
 <body>
 
 
+<div class="container">
+    <input type="text"  id="search_box" name="keyword" placeholder="Search by suburb or city">
+    <input id="btnSearch" type="button" value="search" />
 
+    <ul id="searchResult">
 
-<input type="text"  id="search_box" name="keyword" placeholder="Search by suburb or city">
-<input id="btnSearch" type="button" value="search" />
+    </ul>
+</div>
 
-<table id="searchResult" border='1'>
-    <tr>
-        <th>Result</th>
-    </tr>
-</table>
 <input id="btnnext" type="button" value="Next" />
 <input id="btnback" type="button" value="Back" />
 <script type="text/javascript">
@@ -85,12 +278,15 @@
                             if (item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
                                 src = item.pagemap.cse_thumbnail[0].src;
                             } else {
-                                src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw6lyiAM_cHeC7p04bRD-6Jy08QMpt_Wuvj4JZsMOPibj93Zk3dJUGn-2l";
+                                //src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw6lyiAM_cHeC7p04bRD-6Jy08QMpt_Wuvj4JZsMOPibj93Zk3dJUGn-2l";
                             }
-                            trHTML += '<tr><td><a href="' + item.link + '">' + item.title + '</a>' +
-                                '<br/> <label>About us: </label>' + item.snippet +
-                                '<br/> <img src ="' + src + '">' +
-                                '</td></tr>';
+                            trHTML += '<li class="listing hp">' +
+                                '<div class="business" data-ls-trc="lv_result_listing">' +
+                                '<div class="marker"><span class="mm"></span>' +
+                                '</div>' +
+                                '<div class="details"><h3><a href="'+item.link+'">' +item.title + '</a></h3>' +
+                                '<h4 class="slogan" ><label>About us: </label>' + item.snippet +'</h4></div>' +
+                                '<div class="media"><div class="logo"><a ><img class="thumbnail" src="' + src + '"></a></div></div></div></li>'
                         });
                     });
 
