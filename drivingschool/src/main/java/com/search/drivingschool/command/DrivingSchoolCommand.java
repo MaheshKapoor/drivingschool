@@ -83,12 +83,5 @@ public class DrivingSchoolCommand {
 
 
 
-    private void logAndThrowHttpClientErrorException(HttpClientErrorException hce) {
-        if (hce.getStatusCode() != null && hce.getStatusCode().value() == HTTP_STATUS_NOT_FOUND) {
-            logger.error("There was no matching resource for the given input::" + hce);
-        } else {
-            logger.error("An HTTPClient error occurred while calling the API.", hce);
-            throw hce;
-        }
-    }
+
 }

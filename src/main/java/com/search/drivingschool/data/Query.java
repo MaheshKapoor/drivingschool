@@ -12,6 +12,9 @@ public class Query {
     @JsonProperty("nextPage")
     private List<NextPage> nextPage;
 
+    @JsonProperty("request")
+    private List<CurrentPage> currentPaget;
+
     public List<NextPage> getNextPage() {
         return nextPage;
     }

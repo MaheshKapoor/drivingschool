@@ -18,8 +18,14 @@ public class DrivingSchoolConfiguration {
     @Value("${Google.CSE.Key}")
     private String customSearchQueryParam;
 
-    @Value("${Google.CSE.API.KEY2}")
+    @Value("${Google.CSE.API.KEY}")
     private String customSearchAPIKey;
+
+    @Value("${Mongo.db.connection.url}")
+    private String mongodbConnectionURL;
+
+    @Value("${Mongo.db.toggle}")
+    private boolean mongodbToggleEnabled;
 
     public String getCustomSearchAPIKey() {
         return customSearchAPIKey;
@@ -51,5 +57,21 @@ public class DrivingSchoolConfiguration {
 
     public void setDownStreamCSEURL(String downStreamCSEURL) {
         this.downStreamCSEURL = downStreamCSEURL;
+    }
+
+    public String getMongodbConnectionURL() {
+        return mongodbConnectionURL;
+    }
+
+    public void setMongodbConnectionURL(String mongodbConnectionURL) {
+        this.mongodbConnectionURL = mongodbConnectionURL;
+    }
+
+    public boolean isMongodbToggleEnabled() {
+        return mongodbToggleEnabled;
+    }
+
+    public void setMongodbToggleEnabled(boolean mongodbToggleEnabled) {
+        this.mongodbToggleEnabled = mongodbToggleEnabled;
     }
 }

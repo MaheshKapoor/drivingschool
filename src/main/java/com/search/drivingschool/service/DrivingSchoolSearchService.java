@@ -15,7 +15,7 @@ import javax.ws.rs.QueryParam;
  * Created by abc on 8/31/2017.
  */
 
-@Controller
+@RestController
 public class DrivingSchoolSearchService {
 
     @Autowired

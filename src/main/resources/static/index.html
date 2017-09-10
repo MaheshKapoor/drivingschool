@@ -19,38 +19,77 @@
     </tr>
 </table>
 <input id="btnnext" type="button" value="Next" />
+<input id="btnback" type="button" value="Back" />
 <script type="text/javascript">
     $(document).ready( function() {
         // alert($('#search_box').val());
 
         var startIndex = 1;
+        var count =0;
+        var total= 0;
+        var backbutton = 0;
         var src = null;
         $('#searchResult').hide();
-        $('#btnSearch, #btnnext').click( function() {
+        if(startIndex ==1){
+            $('#btnnext').hide();
+        }
+
+        if(backbutton == 0){
+            $('#btnback').hide();
+        }
+        $('#btnSearch, #btnnext').click(function () {
+            search(startIndex);
+        });
+        $('#btnback').click(function () {
+
+            search(backbutton);
+        });
+
+        function search(startIndex1) {
             $.ajax({
                 type: "GET",
                 url: "/drivingschool",
-                data: {suburb : $('#search_box').val(), startIndex: startIndex},
+                data: {suburb: $('#search_box').val(), startIndex: startIndex1},
                 dataType: "json",
-                timeout : 60000,
-                cache : false,
-                success : function(data) {
+                timeout: 60000,
+                cache: false,
+                success: function (data) {
                     //alert("Success" );
                     var trHTML = '';
                     console.log(data);
-                    console.log(data.queries.nextPage[0].startIndex);
-                    startIndex = data.queries.nextPage[0].startIndex;
-                    $.each(data, function() {
 
-                        $.each(this, function(i, item) {
-                            if(item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
-                                src= item.pagemap.cse_thumbnail[0].src;
-                            }else{
-                                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw6lyiAM_cHeC7p04bRD-6Jy08QMpt_Wuvj4JZsMOPibj93Zk3dJUGn-2l";
+                    startIndex = data.queries.nextPage[0].startIndex;
+                    count= data.queries.nextPage[0].count;
+                    backbutton = data.queries.request[0].startIndex - count;
+                    total = data.queries.nextPage[0].totalResults;
+                    if(startIndex >10 && startIndex < total){
+                        $('#btnnext').show();
+                    }else{
+                        $('#btnnext').hide();
+                    }
+
+                    if(backbutton > 0){
+                        $('#btnback').show();
+                    }else{
+                        $('#btnback').hide();
+                    }
+                    console.log("Start Page : "+ startIndex +
+                               // " Current Page :" + startIndex -count +
+                                " Back Page : " + backbutton +
+                                " Total Page : " + total);
+
+
+                    $.each(data, function () {
+
+                        $.each(this, function (i, item) {
+                            if (item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
+                                src = item.pagemap.cse_thumbnail[0].src;
+                            } else {
+                                src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw6lyiAM_cHeC7p04bRD-6Jy08QMpt_Wuvj4JZsMOPibj93Zk3dJUGn-2l";
                             }
-                            trHTML += '<tr><td><a href="'+item.link+'">' +item.title + '</a>' +
+                            trHTML += '<tr><td><a href="' + item.link + '">' + item.title + '</a>' +
                                 '<br/> <label>About us: </label>' + item.snippet +
-                                '<br/> <img src ="' + src + '">'+
+                                '<br/> <img src ="' + src + '">' +
                                 '</td></tr>';
                         });
                     });
@@ -58,13 +97,14 @@
                     $('#searchResult').append(trHTML);
                     $('#searchResult').show();
                 },
-                error : function(xhr,data) {
+                error: function (xhr, data) {
                     if (data.status != "SUCCESS") {
                         alert("ERROR");
                     }
                 },
             });
-        });
+        }
+
     });
 
 </script>

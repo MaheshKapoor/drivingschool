@@ -1,7 +1,9 @@
 package com.search.drivingschool.command;
 
 import com.google.gson.Gson;
+import com.search.drivingschool.Handler.DrivingCustomSearchHandler;
 import com.search.drivingschool.config.DrivingSchoolConfiguration;
+import com.search.drivingschool.data.Items;
 import com.search.drivingschool.data.Response;
 import com.search.drivingschool.exception.DownstreamFailureException;
 import com.search.drivingschool.util.RESTInvoker;
@@ -15,8 +17,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URISyntaxException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.search.drivingschool.config.DrivingSchoolConstants.ServiceCommand.HTTP_STATUS_NOT_FOUND;
 
@@ -27,19 +28,21 @@ import static com.search.drivingschool.config.DrivingSchoolConstants.ServiceComm
 public class DrivingSchoolCommand {
 
     @Autowired
-    private RESTInvoker restAPIService;
-
-    @Autowired
     private DrivingSchoolConfiguration config;
 
-    private static final Logger logger = LoggerFactory.getLogger(DrivingSchoolCommand.class);
+    @Autowired
+    private DrivingCustomSearchHandler drivingCustomSearchHandler;
 
-    private static final String RESPONSE = "/mocks/googleResponse/GoogleResponse_Parramatta.json" ;
+    private static final Logger logger = LoggerFactory.getLogger(DrivingSchoolCommand.class);
 
     public Response getConsolidatedDetail(String suburb, String startIndex){
         Response customSearchResponse = null;
         try {
-            customSearchResponse = getCustomSearchData(suburb, startIndex);
+            customSearchResponse = drivingCustomSearchHandler.getCustomSearchData(suburb, startIndex);
+            if(config.isMongodbToggleEnabled()){
+                customSearchResponse.getItems().addAll(getDBData());
+            }
+
             logger.info("response"+customSearchResponse);
         }catch(Exception ex){
             logger.error("Error while calling Custom Search API", ex);
@@ -47,75 +50,16 @@ public class DrivingSchoolCommand {
         return customSearchResponse;
     }
 
-    public Response getCustomSearchData(String suburb, String startIndex) throws IOException, DownstreamFailureException{
-        Response response=null;
-        String googleCSEUrl = config.getDownStreamCSEURL();
-        String defaultQueryParam = config.getDefaultCSEQueryParam();
-        String defaultCSEQueryParam = config.getCustomSearchQueryParam();
-        String customSearchAPIKey = config.getCustomSearchAPIKey();
 
-        Map<String, Object> params = new HashMap<String, Object>();
-
-        if(suburb != null){
-            params.put("hq",suburb);
-        }
-
-        if(defaultQueryParam != null){
-            params.put("q", defaultQueryParam);
-        }
-
-        if(defaultCSEQueryParam != null){
-            params.put("cx", defaultCSEQueryParam);
-        }
-
-        if(customSearchAPIKey != null){
-            params.put("key", customSearchAPIKey);
-        }
-
-        if(startIndex != null){
-            params.put("start", startIndex);
-        }
-
-        try{
-            if(false){
-                logger.info("flow for mock");
-                Reader reader = new InputStreamReader(DrivingSchoolCommand.class.getResourceAsStream(RESPONSE));
-                logger.info("Reader :"+ reader);
-                //gson
-                Gson gson = new Gson();
-
-                response = gson.fromJson(reader, Response.class);
-                logger.info("response"+response);
-            }else {
-                response = restAPIService.get(googleCSEUrl, params, Response.class);
-                if(response != null) {
-                    logger.info("Downstream response is not Null");
-                }else{
-                    logger.info("Downstream response is NULL");
-                }
-            }
-        }catch (HttpClientErrorException hce) {
-            logAndThrowHttpClientErrorException(hce);
-        }catch (Exception e) {
-            throw new DownstreamFailureException("500", "Downstream Failure " + e);
-        }
-
-        return response;
-    }
-
-    public String getDBData(){
-
-        return "Success";
+    public List getDBData(){
+        List items = new ArrayList() ;
+        Items dbval = new Items();
+        dbval.setLink("www.test.com");
+        dbval.setSnippet("Test");
+        dbval.setTitle("Test");
+        items.add(dbval);
+        return items;
     }
 
 
-
-    private void logAndThrowHttpClientErrorException(HttpClientErrorException hce) {
-        if (hce.getStatusCode() != null && hce.getStatusCode().value() == HTTP_STATUS_NOT_FOUND) {
-            logger.error("There was no matching resource for the given input::" + hce);
-        } else {
-            logger.error("An HTTPClient error occurred while calling the API.", hce);
-            throw hce;
-        }
-    }
 }
