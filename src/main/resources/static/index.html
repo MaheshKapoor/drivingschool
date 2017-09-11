@@ -12,9 +12,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
-
         ul{
+            margin-top:20px;
             list-style: none;
+            padding-left:0px;
         }
         .listing{
             background: #fff;
@@ -32,12 +33,10 @@
             display: block;
             height: 100%;
         }
-
         .business, .details {
             width: 100%;
             position: relative;
         }
-
         .marker {
             width: 60px;
             float: left;
@@ -48,7 +47,6 @@
             left: 0;
             z-index: 10;
         }
-
         .mm {
             margin: 0 auto;
             font-weight: 600;
@@ -57,28 +55,23 @@
             width: 28px;
             height: 39px;
             display: block;
-
             background: url(../mm_yellow_empty.svg) center top no-repeat,none;
             -webkit-background-size: contain!important;
             -moz-background-size: contain!important;
             background-size: contain!important;
         }
-
         .details {
             min-height: 50px;
         }
-
         .details>a:first-child {
             display: block;
             width: 100%;
             z-index: 0;
         }
-
         .details>a:first-child, .media {
             position: absolute;
             height: 100%;
         }
-
         .details h3 {
             margin: 0 0 5px;
             color: #00368b;
@@ -86,11 +79,9 @@
             font-size: 17px;
         }
         @media (min-width: 1200px){
-
             .container {
                 width: 1170px;
             }
-
         }
         @media (min-width: 992px)
         {
@@ -104,24 +95,21 @@
                 width: 750px;
             }
         }
-
         .container {
             padding-right: 15px;
             padding-left: 15px;
             margin-right: auto;
             margin-left: auto;
+            position:relative;
+            margin-top:5%;
         }
-
         a {
             color: #00368b;
         }
-
         a {
             color: #337ab7;
             text-decoration: none;
         }
-
-
         .details .slogan {
             font-size: 14px;
             max-width: 250px;
@@ -129,27 +117,23 @@
             color: #525252;
             margin: 0 0 5px;
         }
-
         .details address {
             line-height: 16px;
             color: #525252;
             font-size: 12px;
             margin: 0 0 3px;
         }
-
         .details address {
             line-height: 16px;
             color: #525252;
             font-size: 12px;
             margin: 0 0 3px;
         }
-
         .details p.num {
             margin: 0;
             font-weight: 700;
             font-size: 12px;
         }
-
         .media {
             top: 10px;
             right: 10px;
@@ -157,29 +141,24 @@
             width: 170px;
             z-index: 9;
         }
-
         .media .logo {
             float: right;
             width: 100%;
             height: 100%;
             padding-bottom: 20px;
         }
-
         .media .logo a {
             display: inline;
         }
-
         .media .logo img {
             border: 1px solid #e5e5e5;
             min-height: auto;
             max-height: 100%;
             float: right;
         }
-
         .listing.hp::before {
-            background: #ffd801;
+            background: #ef0000;
         }
-
         .listing.dq::before, .listing.hc::before, .listing.hp::before, .listing.hs::before, .listing.mb::before, .listing.qc::before {
             content: "";
             position: absolute;
@@ -194,6 +173,68 @@
             height: 80%;
         }
 
+        .search-field {
+            width: 99%;
+            padding: 11px 60px 11px 10px;
+            box-sizing: border-box;
+            height: 48px;
+            background-color: rgb(255,255,255);
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            margin: 0;
+            text-align: center;
+            line-height: 48px;
+            cursor: pointer;
+            background: #194c81;
+            width: 48px;
+            height: 46px;
+            border: 1px solid #194c81;
+        }
+
+        .banner {
+            background-image: url(../tradie.jpg);
+            background-repeat:no-repeat;
+        }
+        .banner {
+            min-height: 680px;
+            overflow: hidden;
+            -webkit-transition: height 0s ease;
+            transition: height 0s ease;
+        }
+        .cta p {
+            font-size: 24px;
+            margin-top: 0;
+        }
+        home.min.css:1
+        .show {
+            display: block;
+        }
+        .cta {
+            text-shadow: 0 1px 0 rgba(0,0,0,.2);
+            text-align: center;
+            margin-top:10%;
+            color:#fff;
+        }
+        .cta p.cta-heading {
+            font-size: 64px;
+            margin: 0;
+        }
+        .random-phrase.show {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            visibility: visible;
+        }
+         .btn-group{
+             margin: 20px auto;
+             width: 100%;
+             text-align: center;
+         }
     </style>
 
 
@@ -201,22 +242,31 @@
 </head>
 <body>
 
-
+<div class="main banner">
+    <div class="cta">
+        <p class="cta-heading">Search Driving School</p>
+        <p class="random-phrase show">Find local takeaway, golf courses or beauty salons</p>
+    </div>
 <div class="container">
-    <input type="text"  id="search_box" name="keyword" placeholder="Search by suburb or city">
-    <input id="btnSearch" type="button" value="search" />
+    <input type="text"  class="search-field" id="search_box" name="keyword" placeholder="Search by suburb or city">
+    <a href="javascript:;" class="search-btn" name="search_partners" id="btnSearch">
+        <img src="../icon_search_white.png" alt="Search">
+    </a>
+
 
     <ul id="searchResult">
 
     </ul>
+    <div class="btn-group">
+    <input id="btnnext" type="button" value="Next" />
+    <input id="btnback" type="button" value="Back" />
+    </div>
+</div>
 </div>
 
-<input id="btnnext" type="button" value="Next" />
-<input id="btnback" type="button" value="Back" />
 <script type="text/javascript">
     $(document).ready( function() {
         // alert($('#search_box').val());
-
         var startIndex = 1;
         var count =0;
         var total= 0;
@@ -226,7 +276,6 @@
         if(startIndex ==1){
             $('#btnnext').hide();
         }
-
         if(backbutton == 0){
             $('#btnback').hide();
         }
@@ -234,10 +283,8 @@
             search(startIndex);
         });
         $('#btnback').click(function () {
-
             search(backbutton);
         });
-
         function search(startIndex1) {
             $.ajax({
                 type: "GET",
@@ -250,7 +297,6 @@
                     //alert("Success" );
                     var trHTML = '';
                     console.log(data);
-
                     startIndex = data.queries.nextPage[0].startIndex;
                     count= data.queries.nextPage[0].count;
                     backbutton = data.queries.request[0].startIndex - count;
@@ -260,20 +306,16 @@
                     }else{
                         $('#btnnext').hide();
                     }
-
                     if(backbutton > 0){
                         $('#btnback').show();
                     }else{
                         $('#btnback').hide();
                     }
                     console.log("Start Page : "+ startIndex +
-                               // " Current Page :" + startIndex -count +
-                                " Back Page : " + backbutton +
-                                " Total Page : " + total);
-
-
+                        // " Current Page :" + startIndex -count +
+                        " Back Page : " + backbutton +
+                        " Total Page : " + total);
                     $.each(data, function () {
-
                         $.each(this, function (i, item) {
                             if (item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
                                 src = item.pagemap.cse_thumbnail[0].src;
@@ -289,7 +331,6 @@
                                 '<div class="media"><div class="logo"><a ><img class="thumbnail" src="' + src + '"></a></div></div></div></li>'
                         });
                     });
-
                     $('#searchResult').append(trHTML);
                     $('#searchResult').show();
                 },
@@ -300,9 +341,7 @@
                 },
             });
         }
-
     });
-
 </script>
 </body>
 </html>
