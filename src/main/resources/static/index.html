@@ -325,10 +325,11 @@
                     console.log(data);
                     startIndex = data.queries.nextPage[0].startIndex;
                     count= data.queries.nextPage[0].count;
-                    currentStartIndex = startIndex - count;
+                    currentResultIndex = startIndex - count;
+                    currentResultMaxIndex=startIndex-1;
                     backbutton = data.queries.request[0].startIndex - count;
                     total = data.queries.nextPage[0].totalResults;
-                    countDisplay="Showing "+currentStartIndex +" - "+--startIndex +" of "+ total + " Results"
+                    countDisplay="Showing "+currentResultIndex +" - "+--currentResultMaxIndex +" of "+ total + " Results"
                     if(startIndex >10 && startIndex < total){
                         $('#btnnext').show();
                     }else{
