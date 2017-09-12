@@ -26,9 +26,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         ul{
+            <!--margin-top:10px;-->
+            list-style: none;
+            padding-left:0px;
+        }
+
+        .resultHeading{
             margin-top:20px;
             list-style: none;
             padding-left:0px;
+            color: white;
         }
         .listing{
             background: #fff;
@@ -45,6 +52,7 @@
             padding: 10px 40% 10px 60px;
             display: block;
             height: 100%;
+            background: whitesmoke;
         }
         .business, .details {
             width: 100%;
@@ -198,7 +206,7 @@
 
         .search-btn {
             position: absolute;
-            right: 25px;
+            right: 23px;
             top: 0;
             margin: 0;
             text-align: center;
@@ -206,7 +214,7 @@
             cursor: pointer;
             background: #194c81;
             width: 48px;
-            height: 46px;
+            height: 48px;
             border: 1px solid #194c81;
         }
 
@@ -267,10 +275,12 @@
         <img src="../images/icon_search_white.png" alt="Search">
     </a>
 
-
+<div id="result">
+    <label id="countHeading" class="resultHeading"></label>
     <ul id="searchResult">
-
     </ul>
+</div>
+
     <div class="btn-group">
     <input id="btnnext" type="button" value="Next" />
     <input id="btnback" type="button" value="Back" />
@@ -286,6 +296,8 @@
         var total= 0;
         var backbutton = 0;
         var src = null;
+        var countDisplay = "";
+        var currentStartIndex =0;
         $('#searchResult').hide();
         if(startIndex ==1){
             $('#btnnext').hide();
@@ -313,8 +325,10 @@
                     console.log(data);
                     startIndex = data.queries.nextPage[0].startIndex;
                     count= data.queries.nextPage[0].count;
+                    currentStartIndex = startIndex - count;
                     backbutton = data.queries.request[0].startIndex - count;
                     total = data.queries.nextPage[0].totalResults;
+                    countDisplay="Showing "+currentStartIndex +" - "+--startIndex +" of "+ total + " Results"
                     if(startIndex >10 && startIndex < total){
                         $('#btnnext').show();
                     }else{
@@ -346,7 +360,10 @@
                         });
                     });
                     $('#searchResult').append(trHTML);
+                    $('#countHeading').append(countDisplay);
                     $('#searchResult').show();
+                    $('#countHeading').show();
+                    $('#result').show();
                 },
                 error: function (xhr, data) {
                     if (data.status != "SUCCESS") {
