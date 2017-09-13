@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Search Driving School</title>
+    <title><h1>Search Driving School</h1></title>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,8 +25,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
+        .navbar-fixed-top.top-header-blue {
+            background: #2962ff;
+            color: #fff;
+            -ms-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+            box-shadow: 0 1px 2px rgba(0,0,0,.1);
+        }
+
+        .navbar-fixed-top {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 54px;
+            padding: 11px 0;
+            background: #ffe500;
+            z-index: 200;
+        }
+
+
         ul{
-            <!--margin-top:10px;-->
             list-style: none;
             padding-left:0px;
         }
@@ -122,7 +139,7 @@
             margin-right: auto;
             margin-left: auto;
             position:relative;
-            margin-top:5%;
+            /*margin-top:5%;*/
         }
         a {
             color: #00368b;
@@ -257,17 +274,51 @@
              width: 100%;
              text-align: center;
          }
+
+        .logo {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            visibility: visible;
+            -webkit-transition: opacity .5s ease;
+            transition: opacity .5s ease;
+        }
+
+        .navbar-fixed-top .logo {
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-fixed-top .logo, .navbar-fixed-top .logo-search-bar {
+            max-width: 166px;
+            margin: 3px auto 0;
+        }
+
+        img {
+            border: 0;
+        }
     </style>
 
 
 
 </head>
 <body>
+<section id="top-header" class="navbar-fixed-top search-fixed top-header-blue">
+    <div class="container"> <div class="row">
 
+        <div class="col-xxs-8 col-sm-4 col-lg-12 col-sf-8">
+            <div class="logo"> <a href="/">
+                <img src="images/searchdrivingschool.png" alt="LocalSearch"  width="120" xheight="27"> </a>
+        </div>
+        </div>
+
+        </div>
+    </div>
+
+</section>
 <div class="main banner">
     <div class="cta">
-        <p class="cta-heading">Search Driving School</p>
-        <p class="random-phrase show">Find local takeaway, golf courses or beauty salons</p>
+        <h1><p class="cta-heading">Search Driving School</p></h1>
+        <h2><p class="random-phrase show">Find best driving school near you</p></h2>
     </div>
 <div class="container">
     <input type="text"  class="search-field" id="search_box" name="keyword" placeholder="Search by suburb or city">
@@ -329,7 +380,7 @@
                     currentResultMaxIndex=startIndex-1;
                     backbutton = data.queries.request[0].startIndex - count;
                     total = data.queries.nextPage[0].totalResults;
-                    countDisplay="Showing "+currentResultIndex +" - "+--currentResultMaxIndex +" of "+ total + " Results"
+                    countDisplay="Showing "+currentResultIndex +" - "+currentResultMaxIndex +" of "+ total + " Results"
                     if(startIndex >10 && startIndex < total){
                         $('#btnnext').show();
                     }else{
@@ -344,8 +395,11 @@
                         // " Current Page :" + startIndex -count +
                         " Back Page : " + backbutton +
                         " Total Page : " + total);
-                    $.each(data, function () {
-                        $.each(this, function (i, item) {
+                    $.each(data.items, function (i, item) {
+
+
+                       // $.each(this, function (i, item) {
+                            console.log(i);
                             if (item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
                                 src = item.pagemap.cse_thumbnail[0].src;
                             } else {
@@ -359,9 +413,9 @@
                                 '<h4 class="slogan" ><label>About us: </label>' + item.snippet +'</h4></div>' +
                                 '<div class="media"><div class="logo"><a ><img class="thumbnail" src="' + src + '"></a></div></div></div></li>'
                         });
-                    });
-                    $('#searchResult').append(trHTML);
-                    $('#countHeading').append(countDisplay);
+                    //});
+                    $('#searchResult').html(trHTML);
+                    $('#countHeading').html(countDisplay);
                     $('#searchResult').show();
                     $('#countHeading').show();
                     $('#result').show();
