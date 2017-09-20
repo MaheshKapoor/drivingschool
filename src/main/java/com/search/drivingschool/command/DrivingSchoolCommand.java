@@ -2,6 +2,7 @@ package com.search.drivingschool.command;
 
 import com.google.gson.Gson;
 import com.search.drivingschool.Handler.DrivingCustomSearchHandler;
+import com.search.drivingschool.Handler.DrivingDatabaseHandler;
 import com.search.drivingschool.config.DrivingSchoolConfiguration;
 import com.search.drivingschool.data.Items;
 import com.search.drivingschool.data.Response;
@@ -33,6 +34,9 @@ public class DrivingSchoolCommand {
     @Autowired
     private DrivingCustomSearchHandler drivingCustomSearchHandler;
 
+    @Autowired
+    private DrivingDatabaseHandler drivingDatabaseHandler;
+
     private static final Logger logger = LoggerFactory.getLogger(DrivingSchoolCommand.class);
 
     public Response getConsolidatedDetail(String suburb, String startIndex){
@@ -40,7 +44,10 @@ public class DrivingSchoolCommand {
         try {
             customSearchResponse = drivingCustomSearchHandler.getCustomSearchData(suburb, startIndex);
             if(config.isMongodbToggleEnabled()){
-                customSearchResponse.getItems().addAll(getDBData());
+                List dbList = drivingDatabaseHandler.getDatabaseResult(suburb);
+                if(dbList.size() >0)
+                customSearchResponse.getItems().addAll(0, dbList);
+                //customSearchResponse.setItems(drivingDatabaseHandler.getDatabaseResult(suburb));
             }
 
             logger.info("response"+customSearchResponse);
@@ -50,16 +57,6 @@ public class DrivingSchoolCommand {
         return customSearchResponse;
     }
 
-
-    public List getDBData(){
-        List items = new ArrayList() ;
-        Items dbval = new Items();
-        dbval.setLink("www.test.com");
-        dbval.setSnippet("Test");
-        dbval.setTitle("Test");
-        items.add(dbval);
-        return items;
-    }
 
 
 }
