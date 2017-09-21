@@ -27,46 +27,7 @@ public class DrivingDatabaseHandler {
             // Get the handle of the collection/table "someonetable"
             MongoCollection<Document> collection = database.getCollection("ds_main");
 
-            // Prepare to write data
-            //Document doc = new Document();
-            //doc.append("key", "value");
-            //doc.append("username", "jack");
-            //doc.append("age", 31);
-
-            // Write data
-            //collection.insertOne(doc);
-            //System.out.println("insert document: " + doc);
-
-            // Read data
-
-//                Mongo m = new Mongo('localhost',27017);
-//                DB db = m.getDB("yourDBName");
-//                Collection coll = db.getCollection("yourCollectionName")
-//                BasicDBObject query = new BasicDBObject();
-//                query.put("HomeTown", 1);
-//                DBCursor cursor = coll.find(query);
-//                ArrayList arr = new ArrayList();
-//                String str;
-//                while (cursor.hasNext()) {
-//                    str=cursor.curr().get("HomeTown").toString();
-//                    arr.add(str);
-//                }
-
-
-//                BsonDocument filter = new BsonDocument();
-//                filter.append("school_id", new BsonString("000001"));
-//                MongoCursor<Document> cursor = collection.find(filter).iterator();
-//                while (cursor.hasNext()) {
-//                    Items dbval = new Items();
-//                    dbval.setLink("www.google.com");//cursor.next().get("website").toString());
-//                    dbval.setSnippet("This is funny");//cursor.next().get("suburb").toString());
-//                    dbval.setTitle("Test");//cursor.next().get("school_name").toString());
-//                    //System.out.println("find document: " + cursor.next());
-//                    items.add(dbval);
-//
-//                }
-
-            Document findQuery = new Document("suburb", suburb);
+            Document findQuery = new Document("suburb", java.util.regex.Pattern.compile(suburb));
             Document orderBy = new Document("decade", 1);
 
             MongoCursor<Document> cursor = collection.find(findQuery).iterator();
