@@ -5,6 +5,28 @@ var isMobile = false; //This is set to true for screens smaller than 768px;
 $(document).ready(function(){
     /* TRUNCATING AWARD TEXT */
 
+    featurePartner();
+    var startIndex = 1;
+    var count =0;
+    var total= 0;
+    var backbutton = 0;
+    var src = null;
+    var countDisplay = "";
+    var currentStartIndex =0;
+    $('#searchResult').hide();
+    if(startIndex ==1){
+        $('#btnnext').hide();
+    }
+    if(backbutton == 0){
+        $('#btnback').hide();
+    }
+    $('#btnSearch, #btnnext').click(function () {
+
+        search(startIndex);
+    });
+    $('#btnback').click(function () {
+        search(backbutton);
+    });
     //truncateText();
 
     /* SEARCH
@@ -88,6 +110,9 @@ $(document).ready(function(){
             $(".awards-block").hide();
             $(".search-results").show();
         } else {
+            //alert("test");
+            console.log("megha");
+            search(1);
             $(".search-results").hide();
             $(".progress-indicator").show();
             setTimeout(function() {
@@ -97,6 +122,103 @@ $(document).ready(function(){
             }, 1000);
         }
     });
+
+    function featurePartner() {
+        $.ajax({
+            type: "GET",
+            url: "/featurePartner",
+            //data: {suburb: $('#search-field').val()},
+            dataType: "json",
+            timeout: 60000,
+            cache: true,
+            success: function (data) {
+                //console.log(data);
+                var trHTML = '';
+                $.each(data.data, function (i, data) {
+                    console.log(i+ data.title);
+                    trHTML += '<li><div class="img-wrapper"><img src="'+data.logo+'" /></div>'+
+                        '<p><a href="'+data.website+'"target="_blank">'+data.title+
+                    '</a></p></li>'
+                });
+
+                $('#awards-list').html(trHTML);
+
+            },
+            error: function (xhr, data) {
+                if (data.status != "SUCCESS") {
+                    alert("ERROR");
+                }
+            },
+        });
+    }
+
+    function search(startIndex1) {
+        $.ajax({
+            type: "GET",
+            url: "/drivingschool",
+            data: {suburb: $('#search-field').val(), startIndex: startIndex1},
+            dataType: "json",
+            timeout: 60000,
+            cache: false,
+            success: function (data) {
+                //alert("Success" );
+                var trHTML = '';
+                console.log(data);
+                startIndex = data.queries.nextPage[0].startIndex;
+                count= data.queries.nextPage[0].count;
+                currentResultIndex = startIndex - count;
+                currentResultMaxIndex=startIndex-1;
+                backbutton = data.queries.request[0].startIndex - count;
+                total = data.queries.nextPage[0].totalResults;
+                countDisplay="Showing "+currentResultIndex +" - "+currentResultMaxIndex +" of "+ total + " Results"
+                // if(startIndex >10 && startIndex < total){
+                //     $('#btnnext').show();
+                // }else{
+                //     $('#btnnext').hide();
+                // }
+                // if(backbutton > 0){
+                //     $('#btnback').show();
+                // }else{
+                //     $('#btnback').hide();
+                // }
+                console.log("Start Page : "+ startIndex +
+                    // " Current Page :" + startIndex -count +
+                    " Back Page : " + backbutton +
+                    " Total Page : " + total);
+                $.each(data.items, function (i, item) {
+
+
+                    // $.each(this, function (i, item) {
+                    console.log(i);
+                    if (item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
+                        src = item.pagemap.cse_thumbnail[0].src;
+                    } else {
+                        //src = "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw6lyiAM_cHeC7p04bRD-6Jy08QMpt_Wuvj4JZsMOPibj93Zk3dJUGn-2l";
+                    }
+                    if (item.pagemap != null && item.pagemap.cse_thumbnail != null && item.pagemap.cse_thumbnail[0].src != null) {
+                        src = item.pagemap.cse_thumbnail[0].src;
+                    } else {
+                        src = "http://www.alpha3j.com/oracle/partnerfinder/prototype/images/cloud-diamond/32x175-OPN-Diamond-Global-Cloud-Elite-clr.png";
+                    }
+                    trHTML += '<li><div><a href="'+item.link+'">'+item.title + '</a>'+
+                            '<p><label>About us: </label>' + item.snippet + '</p></div>'+
+                            '<div class="logo">'+
+                            '<img src="'+src+'" alt="Driving school logo"/></div></li>'
+                });
+                //});
+                $('#partner-list').html(trHTML);
+                //$('#countHeading').html(countDisplay);
+                //$('#searchResult').show();
+                //$('#countHeading').show();
+                //$('#result').show();
+            },
+            error: function (xhr, data) {
+                if (data.status != "SUCCESS") {
+                    alert("ERROR");
+                }
+            },
+        });
+    }
 
     /* CLEAR SEARCH FIELD--------- */
     $(".clear-search").on("click", function() {

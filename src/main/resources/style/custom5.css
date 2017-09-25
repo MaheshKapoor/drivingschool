@@ -1,0 +1,488 @@
+/* OVERRIDES FOR compass base styles - These maybe unecessary with the correct JS and CSS includes
+----------------------------------------------------------------------------------------------------*/
+#pfile-regs,
+#pfile-regacct,
+#pfile-help { display: none; }
+
+.sticky-ct06tabs { margin: 0 0 3em 0; }
+
+/* Override Compass Style ------------*/
+html, body 	{ background-color: #fff; }
+.f11 #u06	{ margin-bottom: 0; }
+
+/* GENERIC STYLES
+----------------------------------------------------*/
+body { background-color: #fff; height: auto; }
+body.overlay-open { overflow: hidden; }
+.pfcontent a, .pfcontent a:link, .pfcontent a:visited { color: #1f4f82; }
+
+.pfcontent { padding: 0;  background-color: #fff;}
+.pfcontent * {  outline: 0; }
+.pfcontent .clearfix:after { display: table; content: " "; clear: both }
+.pfcontent img { max-width: 100%; }
+
+/* PLACEHOLDER TEXT COLOR FOR IE AND FIREFOX -------------*/
+input::-moz-placeholder { color: #999; }
+input:-ms-input-placeholder { color: #999; }
+input.placeholder { color: #999; }
+
+/* Disabling clear field from search field in IE9 and 10 ------------*/
+input.search-field::-ms-clear { display: none; width: 0; height: 0; }
+
+/* Container/Layout --------- */
+.pfcontent .container { width: 980px; margin: 0 auto; }
+.partner-content { position: relative; margin-top: 5px; }
+
+/* FEATURE / BANNER ----------*/
+.pfcontent .banner { background: #fff; }
+.pfcontent .banner .container { position: relative; }
+.pfcontent .banner-image { text-align: center; margin: 0 auto;  /* background: url(../images/bg_banner.jpg) 50% repeat-y; */ background: #dfeaee; }
+.pfcontent .banner img {  min-height: 100px; margin: 0 auto; display: block; }
+.pfcontent .banner-caption { position: absolute; top: -190px; left: 0; font-size: 22px; font-size: 2.2rem; text-align: left; }
+.pfcontent .banner-caption h2 {	font-size: 42px; font-size: 4.2rem; font-weight: normal; margin: 0 0 15px; white-space: nowrap;	}
+.pfcontent .banner-caption p.internal { color: #f00; font-weight: bold; text-transform: uppercase; }
+
+/* TABS
+---------------------------------------*/
+
+.ct06v0 ul.ct06r li a, .ct06v0 ul.ct06r li b { color: #fff; }
+
+
+/* FINDER STYLES
+----------------------------------------------------*/
+
+/* LEFT COLUMN --------- */
+
+/* REFINE FILTERS
+----------------------------------------------*/
+.pfcontent .filters { background: #eee; padding: 0 15px 15px; }
+.pfcontent .refine-block { float: left; width: 280px; margin-right: 15px; padding: 0; position: relative;  }
+
+.pfcontent .refine-filters h3 { clear: both; padding: 15px; margin: 0; background: #eee; font-size: 20px; font-weight: normal; color: #525252; }
+
+/* Clear All --------- */
+.pfcontent .clearall { margin-top: 9px; margin-right: 60px; padding: 3px 15px 5px 10px; border: 1px solid #1f4f82; display: none; }
+.pfcontent a#clear-all { background: url(../images/icon_remove.png) no-repeat 2% 50%; font-size: 14px; padding: 3px 15px 3px 22px;
+    display: block; }
+.pfcontent a#clear-all:hover { background: url(../images/icon_remove2_hover.png) no-repeat 2% 50%; }
+
+/* Hide Facets Options (default state) --------- */
+.pfcontent .refine-block ul ul { display: none; padding-bottom: 5px; }
+
+/* LEVEL 1 --------- */
+.pfcontent .refine-block .filter-scroll {  }
+.pfcontent .refine-block .filter-scroll > ul > li { padding: 0; font-size: 16px; border-bottom: 1px solid #b6b6b6; }
+.pfcontent .refine-block .filter-scroll > ul > li:first-child { border-top: 1px solid #b6b6b6; }
+
+
+.pfcontent .refine-block .filter-scroll > ul > li:last-child { border-bottom: 0; }
+.pfcontent .refine-block .filter-scroll > ul > li.accordion-level > a:first-child { position: relative; display: block; padding: 10px 0 10px 20px;
+    background: url(../images/icon_open_close.png) no-repeat 0 9px; font-size: 18px; color: #525252; }
+
+.pfcontent .refine-block .filter-scroll > ul > li > a > span { width: 20px; height: 20px; display: inline-block;
+    vertical-align: middle; margin: 2px 2px 0 4px; }
+.pfcontent .refine-block .filter-scroll > ul > li > a > span.applied { background: url(../images/icon_selected.png) no-repeat; }
+
+.pfcontent .refine-block .filter-scroll > ul > li > label { color: #525252; display: block; padding: 15px 0 15px 4px;  }
+.pfcontent .refine-block .filter-scroll > ul > li.accordion-level.open > a:first-child { background-position: 0 -20px; }
+
+.pfcontent .refine-block ul.has-info > li > a { background: url(../images/icon_info.png) no-repeat 0 5px; padding-left: 20px !important; }
+
+.pfcontent .refine-block ul.has-info > li > a.selected { background: none; padding-left: 0 !important; }
+.pfcontent .refine-block ul li a:hover { text-decoration: none; }
+
+/* LEVEL 2 --------- */
+.pfcontent .refine-block .filter-scroll > ul > li > ul { margin: 0 0 10px 20px; }
+.pfcontent .refine-block .filter-scroll > ul > li ul a { font-size: 14px; display: block; padding: 5px 0; }
+.pfcontent .refine-block .filter-scroll > ul > li ul li.selected > a { display: none; }
+.pfcontent .refine-block .filter-scroll > ul > li ul a:hover { text-decoration: underline; }
+.pfcontent .refine-block .filter-scroll > ul > li ul li.selected > .hint { display: none; }
+.pfcontent .refine-block .filter-scroll > ul > li ul a.selected { color: #444; font-weight: bold; }
+
+/* Show More/ Show Less --------- */
+.pfcontent .refine-block .filter-scroll > ul > li ul li.selected > a.showmore { display: block; border: 0; font-weight: bold; font-size: 14px;	padding: 0;
+    text-decoration: none;}
+.pfcontent .refine-block .filter-scroll > ul >li.accordion-level > a.showmore { display: block; border: 0; font-weight: bold; font-size: 14px;
+    vertical-align: middle;	margin: -10px 0 10px 20px; text-decoration: none;  }
+.pfcontent .refine-block .filter-scroll > ul >li.accordion-level > a.showmore:after { content: "+"; margin-left: 6px; }
+.pfcontent .refine-block .filter-scroll > ul >li.accordion-level > a.showless:after	{ content: "-"; }
+.pfcontent .refine-block .filter-scroll > ul >li.accordion-level > a.showmore:hover,
+.pfcontent .refine-block .filter-scroll > ul >li.accordion-level > a.showless:hover { text-decoration: underline; }
+
+.pfcontent .refine-block li.selected > a.showmore:after,
+.pfcontent .refine-block li.selected > a.showless:after { margin-left: 6px; font-size: 18px; vertical-align: middle; font-weight: normal; }
+.pfcontent .refine-block li.selected > a.showmore:after { content: "+"; }
+.pfcontent .refine-block li.selected > a.showless:after { content: "-"; vertical-align: baseline; }
+
+/* SELECTED FILTERS --------- */
+.pfcontent .filter-scroll ul li .selected-filters { display: none; font-size: 13px; }
+.pfcontent .filter-scroll ul li .selected-filters.showing { padding: 5px 5px 0 20px; display: block; }
+/*	.pfcontent .filter-scroll ul li .selected-filters.final { padding-bottom: 10px; } */
+.pfcontent .filter-scroll ul li .selected-filters.final + ul { height: 0; padding: 0 }
+.pfcontent .filter-scroll ul li .selected-filters.final + ul li { height: 0; padding: 0; }
+
+.pfcontent .filter-scroll ul li .selected-filters > div { line-height: 16px; padding: 5px 0; color: #666; white-space: nowrap; }
+.pfcontent .filter-scroll ul li .selected-filters > div >span { max-width: 148px; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; display: inline-block; vertical-align: middle; color: #777; }
+.pfcontent .filter-scroll ul li .selected-filters a.remove-filter { display: block;
+    vertical-align: middle; color: #999; }
+.pfcontent .filter-scroll ul li .selected-filters a.remove-filter span { display: inline-block; max-width: 93%; overflow: hidden; text-overflow: ellipsis; background: url(../images/icon_remove2.png) no-repeat 100% 5%; padding: 2px 25px 0 0; }
+.pfcontent .filter-scroll ul li .selected-filters a.remove-filter:hover { color: #1f4f82; text-decoration: underline; }
+.pfcontent .filter-scroll ul li .selected-filters a.remove-filter:hover span {
+    background: url(../images/icon_remove2_hover.png) no-repeat 100% 5%; }
+
+
+/* Specialty Area --------- */
+.pfcontent ul.specialty-area li { position: relative; }
+.pfcontent ul.specialty-area li .hint { position: absolute; left: 0; top: 7px }
+.pfcontent .refine-block .filter-scroll > ul > li ul.specialty-area a { font-size: 14px; display: block; padding: 6px 0 6px 22px; }
+.pfcontent .refine-block .filter-scroll > ul > li ul.specialty-area li.last-node a { padding-left: 0; }
+.pfcontent .refine-block .filter-scroll > ul > li ul.specialty-area li.last-node .hint + a { padding-left: 22px; }
+
+/* Hint/Tooltip --- */
+.pfcontent ul.specialty-area li .hint .tooltip { display: none; background: #fff; border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc; font-size: 12px; left: 30px; line-height: 18px; padding: 10px 15px;
+    position: absolute; bottom: -250%; width: 200px; z-index: 2; color: #323232; }
+.pfcontent ul.specialty-area li .hint .tooltip:after { width: 11px; height: 16px; bottom: 50%; content: ""; display: block;
+    background: url(../images/icon_hint_arrow.png) no-repeat; left: -10px; position: absolute; z-index: 99;	box-shadow:none; }
+
+/* Specilaty Area - Lists with No Hint --------- */
+.pfcontent .refine-block .filter-scroll > ul > li ul.specialty-area ul.no-hint a { padding-left: 0; }
+
+
+/* Recent Searches ----------*/
+.pfcontent .recent-searches { margin-top: 30px; padding: 15px; background: #eee; }
+.pfcontent .recent-searches h3 { clear: both; padding: 5px 5px 10px; margin: 0; white-space: nowrap;
+    font-size: 20px; font-weight: normal; color: #525252; }
+.pfcontent .recent-searches ul { margin-left: 7px; }
+.pfcontent .recent-searches .filter-scroll ul > li { border: 0; padding: 5px 0;  }
+.pfcontent .recent-searches ul li a { padding: 0; font-size: 13px; }
+
+/* Recent Searches - Buttons for the Overlay (Mobile) --------- */
+.pfcontent .refine-block .button-bar { display: none; }
+.pfcontent .refine-block .close { display: none; }
+
+
+/* RIGHT COLUMN
+---------------------------------------*/
+.pfcontent .colm-main { float: left; width: 70%; max-width: 660px; padding: 0 0 20px 15px; }
+
+/* Search ----------*/
+.pfcontent .search-block { margin: 0 0 20px; }
+.pfcontent .search-form { margin: 0 0 10px;  position: relative; }
+.pfcontent .search-field { width: 100%; padding: 11px 60px 11px 10px; box-sizing: border-box; height: 48px;
+    background-color: rgb(255,255,255); border: 1px solid #ccc; font-size: 16px; }
+.pfcontent .search-field:focus { border: 2px solid #7191ad; box-shadow: 1px 1px 2px #7191ad; }
+.pfcontent .search-btn { position: absolute; right: 0; top: 0; margin: 0; text-align: center; line-height: 48px; cursor: pointer;
+    background: #194c81; width:48px; height:46px; border: 1px solid #194c81; }
+.pfcontent .search-btn > img { vertical-align: text-bottom; padding-top: 8px; }
+.pfcontent .search-form .clear-search { position: absolute; right: 55px; top: 10px; display: none; }
+
+/* Company Name Only (Checkbox) --------- */
+.pfcontent .search-opt { padding: 5px; color: #666; margin: 5px 0 0 0; font-size: 13px; display: none; }
+.pfcontent .search-opt label { margin: 0 0 0 4px; }
+
+/* Intro Text --------- */
+.pfcontent p.intro-text { margin: 0 15px 10px 7px; color: #777; }
+.pfcontent p.intro-text a { white-space: nowrap; /* Prevent wrapping of See FAQ link --- */ }
+
+/* Filter and Recent Buttons for Mobile --------- */
+.mobile-tabs { display: none; }
+.mobile-tabs a.applied { background:#1f4f82  url(../images/icon_check_submit_2.png) 95% 50% no-repeat;  }
+
+/* Global Award Winners ----------*/
+.pfcontent .awards-block { padding: 13px 10px 0 0; }
+.pfcontent .awards-block h3 {  font-size: 22px; font-weight: bold; margin: 0 0 0 7px; }
+.pfcontent .awards-block ul { margin: 20px 0 0 7px; }
+/* .pfcontent .awards-block ul li { float: left; border: 1px solid #eee; border-radius: 2px; width: 31%; box-sizing: border-box;
+    text-align: center; margin: 0 2% 2% 0; padding: 15px; height: 160px; box-shadow: 1px 2px 2px #ddd; cursor: pointer; } */
+.pfcontent .awards-block ul li { float: left; border: 1px solid #eee; width: 33.33%; box-sizing: border-box;
+    text-align: center; margin: 0; padding: 15px; height: 170px; cursor: pointer; margin-right: -1px; margin-bottom: -1px; }
+
+.pfcontent .awards-block ul li:hover a { text-decoration: underline; }
+.pfcontent .awards-block ul li p { font-size: 1.3rem; margin-bottom: 0; margin-top: 10px; line-height: 1.5 }
+
+.pfcontent .awards-block ul li .img-wrapper { line-height: 70px; }
+.pfcontent .awards-block ul li .img-wrapper img { vertical-align: middle; /*max-width: 180px; */ }
+
+/* Map and Total results ----------*/
+.table-top { margin-top: 30px; }
+.table-top:after,
+.table-bottom:after { content: " ";  clear: both; display: table; }
+.table-top .pagination { float: left; padding: 0 0 10px 10px; }
+.table-top > div.show-map { float: right; padding-right: 10px; }
+.table-top div > a { background: url(../images/icon_map.png) no-repeat left center; padding: 2px 0 2px 20px;  }
+#map { display: none; text-align: center }
+#map > img { margin: 0 auto; }
+
+/* Search Results --------- */
+.search-results { font-size: 16px;  display: none; }
+.search-results ul { list-style-type: none; margin: 0; padding: 0; border-top: 1px solid #ddd; }
+.search-results ul li { border-bottom: 1px solid #eee; padding: 0 10px; }
+.search-results ul a { font-size: 18px; color: #0066CC; }
+
+.search-results ul p { font-size: 13px; color: #666; margin: 0; }
+.search-results ul div { padding: 10px 0; float: left; width: 60%; }
+.search-results ul div.logo { text-align: right; width: 40%; }
+
+.search-results ul li:after { content: ""; display: table; clear: both; }
+
+/* Progress Indicator --------- */
+div.progress-indicator { position: fixed; display: none; top: 0; width: 100%; bottom: 0; background: rgba(0,0,0,0.5);
+    text-align: center; z-index: 100; }
+div.progress-indicator .mesg { position: fixed; top: 45%; left: 50%; margin-left: -109px; background: #fff;
+    padding: 20px; border-radius: 10px; margin-top: -20px; display: inline-block; font-weight: bold; white-space: nowrap; }
+div.progress-indicator .mesg img { vertical-align: middle; margin-right: 10px; }
+
+/* Pagination --------- */
+.table-bottom { padding-top: 15px; }
+.table-bottom ul.pagination { float: left; padding: 0 0 10px 10px; border: 0; }
+ul.pagination li { float: left; display: inline; padding: 0 8px; border: 0; }
+ul.pagination li a { padding-right: 3px; }
+ul.pagination li.current a,
+ul.pagination li.disabled a { color: #999; }
+
+
+/* INTERNAL ---------- */
+.pfcontent .refine-block .filter-scroll > ul > li ul a em { color: #999; font-style: normal; font-size: 12px; }
+.pfcontent .refine-block .filter-scroll > ul > li.accordion-level > a.internal { color: #f00; }
+.pfcontent .filter-scroll ul li .selected-filters a.remove-filter > span > em { display: none; }
+
+
+/* MEDIA QUERIES (for RESPONSIVE) --------- */
+
+/* This break point is only to avoid horizontal scrolling on iPad landscape mode. Style overrides for compass.css */
+@media screen and (max-width: 1040px) {
+    /* Footer */
+    .f11 #u06 { margin: 0; width: 100%; box-sizing: border-box; }
+
+    /* Breadcrumbs */
+    .f11 .u03 .u03w1 { margin: 0; }
+    .f11 .u03 ul { padding-left: 2.5%; }
+}
+
+@media screen and (max-width: 974px) {
+
+    /* Feature/Banner ---------*/
+    .pfcontent .banner-caption { padding: 0 10px; }
+
+
+    /* Utility Classes --------- */
+    .hide-if-mobile { display: none !important; }
+    .hide-if-touch { display: none !important; }
+
+    /* Content Layout --------- */
+    .u01 { z-index: 6; }
+    .pfcontent { padding: 0; }
+    .pfcontent .container { width: auto; }
+    .pfcontent .refine-block { width: 235px; margin-right: 10px; }
+    .pfcontent .colm-main {  padding-left: 0; width: 67%; }
+
+    /* Feature Banner --------- */
+    .pfcontent .banner-caption { top: -165px; }
+    .pfcontent .banner-caption h2 { font-size: 40px; font-size: 4rem; }
+
+    /* Tabs --------- */
+    .pfcontent .tabs-link ul { margin-left: 2%; }
+    .pfcontent .tabs-link ul li a { padding: 10px 15px; }
+
+    /* Search Form --------- */
+    .pfcontent .search-form { margin: 0 10px 15px; }
+
+
+    /* Global Award Winners --------- */
+    .pfcontent .awards-block { margin: 0 0 0 10px; }
+
+}
+/* Override compass stules */
+@media (max-width: 770px), (max-height: 600px)  {
+    .sticky-ct06tabs {
+        margin-bottom: 0;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .pfcontent .banner { display: none; }
+
+    /* Feature / Banner ---------
+    .pfcontent .banner-caption { top: -120px; } */
+
+
+
+    /* Buttons - Filter - Recently Viewed --------- */
+    .mobile-tabs { display: block; margin: 0 12px 25px; }
+    .mobile-tabs:after { content: " "; display: table; clear: both; }
+    .mobile-tabs a { display: inline-block; float: left; width: 48%; background: #1f4f82; color: #fff !important;
+        border: 0; box-sizing: border-box; padding: 13px 10px; text-align: center; text-decoration: none; margin-right: 4%;
+        font-size: 16px; font-weight: bold;  }
+    .mobile-tabs a:hover { text-decoration: none; }
+    .mobile-tabs a:last-child { border-right: 0; margin-right: 0; }
+
+    /* Right Column --------- */
+    .pfcontent .content-grad { height: 30px; }
+    .pfcontent .colm-main { width: 100%;  max-width: none; padding-top: 20px;}
+
+    /* Intro Text (Below the search box) --------- */
+    .pfcontent p.intro-text { padding: 0 15px 15px 15px; }
+
+    /* Global Award Winners --------- */
+    .pfcontent .awards-block { padding: 0; margin: 0; }
+    .pfcontent .awards-block h3 { font-size: 26px; font-size: 2.6rem; margin: 0 0 0 10px; }
+    .pfcontent .awards-block ul { margin: 15px 0 0 0; }
+    .pfcontent .awards-block ul li { float: none; display: block; border: 0; border-top: 1px solid #ccc; width: 100%;
+        text-align: left; margin: 0; padding: 15px; height: auto; }
+    .pfcontent .awards-block ul li:after { content: ""; display: table; clear: both; }
+    .pfcontent .awards-block ul li .img-wrapper { float: left; line-height: normal; width: 50%; }
+    .pfcontent .awards-block ul li p { float: right; font-size: 1.8rem; width: 40%; margin-left: 15px; }
+
+
+
+    /* Filters --------- */
+    .pfcontent .filters { background: transparent; }
+
+    .pfcontent .refine-block { position: fixed; z-index: 9; top: 0; bottom: 0; left: 0; right: 0; background: #fff;
+        box-sizing: border-box; padding: 0; margin: 10px; width: auto; float: none; display: none; }
+    .pfcontent .refine-block .filter-scroll { overflow: auto; height: 100%; padding: 10px; }
+    .pfcontent .refine-filters h3 { background: none; padding: 20px; font-size: 20px; }
+
+    .pfcontent .filter-scroll ul.specialty-area li .hint { display: none; /* No Hint for Specialty Area in Mobile ---*/ }
+    .pfcontent .refine-block .filter-scroll > ul > li ul.specialty-area a { padding: 5px 0; }
+
+    /*.pfcontent .filter-scroll ul li .selected-filters a.remove-filter span { max-width: 500px; } */
+
+
+    /* Buttons --------- */
+    .pfcontent .refine-block .button-bar { display: block; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; }
+    .pfcontent .refine-block .button-bar a { display: inline-block; background: #d3d3d3; color: #555; text-align: center;
+        padding: 10px; width: 46%; box-sizing: border-box; margin-right: 5px; }
+
+    .pfcontent .refine-block .button-bar a.full-btn { width: 94%; margin: 0; /* For Recently Viewed --- */ }
+    .pfcontent .refine-block .close,
+    .pfcontent .recent-searches .close { display: inline-block; width: 24px; height: 24px; position: absolute;
+        right: 15px; top: 15px; z-index: 11; }
+
+    .pfcontent .refine-block .button-bar a:last-child { margin: 0; }
+    .pfcontent .refine-block .button-bar a.btn-primary { background: #1f4f82; color: #fff; font-weight: normal; }
+    .pfcontent .refine-block .button-bar a:hover { text-decoration: none; }
+    .pfcontent .refine-block .refine-filters > ul > li > a { padding: 12px 0; }
+
+    .pfcontent .refine-block .button-bar a.btn-primary img { vertical-align: middle; margin-left: 5px; }
+
+    /* Recent Searches --------- */
+    .pfcontent .recent-searches { background: #fff; margin-top: 0; }
+    .pfcontent .recent-searches ul { margin-left: 0; }
+    .pfcontent .recent-searches ul > li > a { padding: 0 5px; display: block; }
+
+    .pfcontent .pf-dropsheet { background: rgba(0,0,0,0.8); position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 8; display: none; }
+
+    /* 	Clear All Filters (Mobile Overlay) ---------  */
+    .pfcontent .refine-filters .clearall { width: 160px; }
+
+}
+
+
+/* Android - Landscape Orientation --------- */
+@media screen and (max-width: 600px) {
+
+    /* Selected Filters
+    .pfcontent .filter-scroll ul li .selected-filters a.remove-filter span { max-width: 370px; } */
+
+
+    /* Feature Banner ---------
+    .pfcontent .banner-caption { top: -95px; }
+    .pfcontent .banner-caption.internal { top: -100px; }
+    .pfcontent .banner-caption.internal h2 { margin-bottom: 10px; }
+    .pfcontent .banner-caption p.internal { position: absolute; bottom: -25px; left: 10px; font-size: 12px; }
+    */
+
+    /* Search Results --------- */
+    .search-results, .search-results table td a, .search-results table td p { font-size: 13px; }
+
+    /*
+        Overlay Progress Indicator ---------
+           Note: Not needed if we can have search execute at the end for mobile.
+    */
+    div.progress-indicator { top: 0; }
+    div.progress-indicator .mesg { top: 20%; }
+
+    /* More Information Buttons --------- */
+    .cmps-bttns > div { float: none; width: auto; }
+    .cmps-bttns>div>a { font-size: 20px; font-size: 2rem; padding: 6px 54px 6px 6px; }
+    .cmps-bttns>div:hover>a:after { background-position: 6px 5px; }
+    .cmps-bttns>div>a:after { background-position: -30px 6px; }
+}
+
+/* iPhone - Landscape Orientation + Android - Portrait Orientation --------- */
+@media screen and (max-width: 480px) {
+
+    /* Feature Banner --------- */
+    .pfcontent .banner-caption { top: -80px; }
+    .pfcontent .banner-caption.internal { top: -90px; }
+    .pfcontent .banner-caption h2 { font-size: 3.2rem; }
+    .pfcontent .banner-caption.internal h2 { margin-bottom: 10px; }
+
+    /* Tabs --------- */
+    .pfcontent .tabs-link ul li a { padding: 11px 13px 12px 13px; line-height: 18px; }
+    .pfcontent .tabs-link ul li a span { display: none; }
+
+    /*.pfcontent .filter-scroll ul li .selected-filters a.remove-filter span { max-width: 280px; }*/
+
+    /* Hide prompt below search field --------- */
+    .pfcontent p.intro-text { display: none; }
+
+    /* Buttons for Mobile: Filter Partners and Recently Viewed --------- */
+    .mobile-tabs { margin: 0 8px 25px; }
+    .mobile-tabs a { padding: 10px 5px; font-size: 13px; white-space: nowrap;  }
+
+
+
+    /* SEARCH RESULTS ----------------*/
+    .search-results ul div { float: none; width: 100%; }
+    .search-results ul div.logo { text-align: left; padding: 0 0 10px; }
+
+}
+
+/* iPhone - Portrait Orientation --------- */
+@media screen and (max-width: 320px) {
+    .pfcontent .tabs-link ul li a { font-size: 14px; padding: 11px 12px 12px 12px; }
+
+    /*.pfcontent .filter-scroll ul li .selected-filters a.remove-filter span { max-width: 200px; } */
+}
+
+/* iPad only */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  {
+    .pfcontent a:hover, .pfcontent .refine-block .filter-scroll > ul > li ul a:hover { text-decoration: none !important; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

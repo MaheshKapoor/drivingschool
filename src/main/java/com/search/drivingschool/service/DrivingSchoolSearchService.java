@@ -1,5 +1,6 @@
 package com.search.drivingschool.service;
 
+import com.google.gson.JsonObject;
 import com.search.drivingschool.command.DrivingSchoolCommand;
 import com.search.drivingschool.data.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,17 @@ public class DrivingSchoolSearchService {
             response = drivingSchoolCommand.getConsolidatedDetail(suburb, startIndex);
         }
         return response;
+    }
+
+    @RequestMapping(value="/featurePartner", method= RequestMethod.GET)
+    public @ResponseBody String getfeaturePartner(@QueryParam("country") final String country) throws Exception {
+
+        JsonObject response = null;
+        //String suburb ="Parramatta";
+        //if(country != null) {
+            response = drivingSchoolCommand.getConsolidatedfeaturePartner(country);
+
+        //}
+        return response.toString();
     }
 }
